@@ -1,0 +1,85 @@
+//old version
+
+// JavaScript Document
+
+	//BMI is weight/m^2
+		//BMI=kg/height*height. Its important to calucate height*height first then divide it.
+		//Underweight=BMI is under 18,4
+		//Normal weight=BMI is 18,5-25
+		//Overweight=BMI is 25-29,9
+		//Obese= BMI is 30+
+		
+		//Globale variabler(synlige for hele scriptet)
+		var input;
+		var result;
+		var msg;
+		var bmi;
+		
+		function calculateBMI(){
+			//Prevents the form from being sent.
+			//e.preventDefault();
+
+			"use strict";
+			//Console.log tester om funktionene eller formen virker.
+			console.log("Form sent");
+			
+			//samler alle html-elementer med tag navn input.
+			input = document.getElementsByTagName("input");
+			//message element:
+			msg = document.getElementById("msg");
+			//input er et array (variable med glere elemtner inde i):
+			console.log(input);
+			//lokale variabler (kun synlige indenfor funktionen)
+			var w = input[0].value; //første input felt + værdi
+			var h = input[1].value; //andet input felt + værdi
+			console.log("Weight: " + w);
+			
+			//beregner BMI:
+			result = (w / (h * h));
+			bmi = result.toFixed(2);
+			//test beregningen
+			console.log(bmi);
+	
+			//output til brugeren
+			/* ------ (BMI: " + bmi ")"; ------ BLIVER IKKE GODKENDT.
+			if(result < 18.5){
+				msg.innerHTML = "Underweight! (BMI: " + bmi ")";
+			} else if(result >= 18.5 && result < 25)
+			{
+				msg.innerHTML = "Normal weight! (BMI: " + bmi ")";
+			} else if (result >= 25 && result < 30){
+				msg.innerHTML = "Overweight! (BMI: " + bmi ")";
+			} else {
+				msg.innerHTML = "Obesity! (BMI: " + bmi ")";
+			}
+			*/
+			
+			//jQuery alerts: alert alert-danger. alert alert-warning.
+			
+			
+			//man skal bruge .removeAttr('class') ellers tager de de sidste 3 class fra den første og så følger alert ikke med.
+			
+			if(result < 18.5){
+				//msg.innerHTML = 'Underweight (BMI: ' + bmi + ')';
+				$('#msg').html('Underweight (BMI: ' + bmi + ')').removeAttr('class').addClass('alert alert-danger').effect('bounce');
+			} else if(result >= 18.5 && result < 25){
+				//to try and us jQuery this is made into a comment - msg.innerHTML = 'Normal weight (BMI: ' + bmi + ')';
+				//jQuery finder id msg, tilføjer innerHTML og en CSS class fra jQuery UI css.
+				$('#msg').html('Normal weight (BMI: ' + bmi + ')').removeAttr('class').addClass('alert alert-success').effect('bounce', {times:5, distance: 50});
+			} else if (result >= 25 && result < 30){
+				//msg.innerHTML = 'Overweight (BMI: ' + bmi + ')';
+				$('#msg').html('Overweight (BMI: ' + bmi + ')').removeAttr('class').addClass('alert alert-warning').effect('bounce');
+			} else {
+				//msg.innerHTML = 'Obesity (BMI: ' + bmi + ')';
+				$('#msg').html('Obesity (BMI: ' + bmi + ')').removeAttr('class').addClass('alert alert-danger').effect('bounce');
+			}
+			
+			
+			return false;
+		}
+
+//jQuery UI
+ $( function() {
+	 "use strict";
+    $( document ).tooltip(); //jQuery + tooltip metoden fra jQuery UI.
+  } );

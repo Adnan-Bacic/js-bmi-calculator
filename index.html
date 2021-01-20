@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>BMI Calculator</title>
+
+	<!--Bootstrap CSS-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!--jQuery UI CSS-->
+	<!--
+	<link rel="stylesheet" href="jquery-ui.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	-->
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!--Bootstrap layout-->
+	<div class="container">
+		<div class="row">
+			<div class="col-12 mx-auto">
+				<div class="jumbotron mt-5">
+				<h1>BMI Calculator</h1>
+					<form id="calculator">
+						<div class="form-group">
+							<label for="weight">Your weight in kg:</label>
+							<input class="form-control" type="number" step="any" placeholder="Your weight (in kg)" required>
+						</div>
+						<div class="form-group">
+							<label for="height">Your height in m:</label>
+							<input class="form-control" type="number" step="any" placeholder="Your height (in m)" required>
+						</div>
+						<button class="btn btn-primary btn-lg btn-block mt-4 mb-5" type="submit">Calculate your BMI</button>
+						<h2 id="msg">Weight category shown here!</h2>	
+					</form>
+				</div>		
+			</div>
+		</div>
+	</div>
+
+	<script src="BMI-calculator.js"></script>
+</body>
+</html>
