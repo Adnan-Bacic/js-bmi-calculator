@@ -1,2 +1,2 @@
-# bmi-calculator
-bmi calculator with js
+# js-bmi-calculator
+js bmi calculator
