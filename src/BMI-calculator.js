@@ -1,12 +1,13 @@
 const calculator = document.querySelector('#calculator')
-const inputs = document.getElementsByTagName("input");
+const weightInput = document.querySelector('#weight')
+const heightInput = document.querySelector('#height')
 const msg = document.querySelector('#msg')
 
 calculator.addEventListener('submit', (e) => {
 	e.preventDefault()
 
-	const w = inputs[0].value
-	const h = inputs[1].value
+	const w = weightInput.value
+	const h = heightInput.value
 
 	const result = (w / (h * h));
 	const bmi = result.toFixed(2);
